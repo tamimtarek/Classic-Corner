@@ -12,70 +12,109 @@
 <body class="font-mulish">
     <header>
         <!-- Navbar -->
-    <nav>
-        <div class="navbar p-4">
-            <div class="navbar-start">
-              <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        <nav>
+            <div class="navbar p-4">
+                <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box">
+                        <li><a title="Home"><img src="icon/home.png" alt=""></a></li>
+                        <li><a title="Edit"><img src="icon/pencil.png" alt=""></a></li>
+                        <li><a title="Add"><img src="icon/Frame.png" alt=""></a></li>
+                        <li><a title="Location"><img src="icon/flag.png" alt=""></a></li>
+                    </ul>
                 </div>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box">
-                    <li><a title="Home"><img src="icon/home.png" alt=""></a></li>
-                    <li><a title="Edit"><img src="icon/pencil.png" alt=""></a></li>
-                    <li><a title="Add"><img src="icon/Frame.png" alt=""></a></li>
-                    <li><a title="Location"><img src="icon/flag.png" alt=""></a></li>
-                </ul>
-              </div>
-              <a class="btn btn-ghost text-2xl font-extrabold font-mulish">Classic Corner</a>
-            </div>
-            <div class="navbar-end flex gap-3">
-                <div class="navbar-center hidden lg:flex">
-                  <ul class="menu menu-horizontal px-1">
-                    <li><a title="Home"><img src="icon/home.png" alt=""></a></li>
-                    <li><a title="Edit"><img src="icon/pencil.png" alt=""></a></li>
-                    <li><a title="Add"><img src="icon/Frame.png" alt=""></a></li>
-                    <li><a title="Location"><img src="icon/flag.png" alt=""></a></li>
-                  </ul>
+                <a class="btn btn-ghost text-2xl font-extrabold font-mulish">Classic Corner</a>
                 </div>
-              <a class="btn rounded-full pl-7 pr-7 bg-[#797DFC] text-white font-bold font-mulish">Sign In</a>
+                <div class="navbar-end flex gap-3">
+                    <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a title="Home"><img src="icon/home.png" alt=""></a></li>
+                        <li><a title="Edit"><img src="icon/pencil.png" alt=""></a></li>
+                        <li><a title="Add"><img src="icon/Frame.png" alt=""></a></li>
+                        <li><a title="Location"><img src="icon/flag.png" alt=""></a></li>
+                    </ul>
+                    </div>
+                <a class="btn rounded-full pl-7 pr-7 bg-[#797DFC] text-white font-bold font-mulish">Sign In</a>
+                </div>
             </div>
-          </div>
-    </nav>
-    <!-- Banner Section -->
-    <div class="mt-5 pr-5 pl-5">
-        <div class="hero h-[550px] rounded-3xl" style=" background-image: url(images/Rectangle\ 1.jpg);">
-            <img class="w-full h-[100%] " src="images/bgbanner.png" alt="">
-            <div class="hero-overlay rounded-3xl bg-opacity-10"></div>
-            <div class="hero-content text-center text-neutral-content flex flex-col lg:flex-row">
-                <div class="text-left">
-                    <h1 class=" text-3xl lg:text-6xl font-bold mb-7 text-left ">Welcome to the <br> Classic Corner Forum</h1>
-                    <p class="mb-5 text-left">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
-                    <div class="h-[40%]">
-                        <input type="text" placeholder="Type here" class="input relative input-bordered max-w-xs rounded-l-full" />
-                        <a class="btn rounded-r-full pl-7 pr-7 bg-[#797DFC] text-white absolute font-bold font-mulish">Sign In</a>
+        </nav>
+        <!-- Banner Section -->
+        <div class="mt-5 pr-5 pl-5">
+            <div class="hero h-[550px] rounded-3xl" style=" background-image: url(images/Rectangle\ 1.jpg);">
+                <img class="w-full h-[100%] " src="images/bgbanner.png" alt="">
+                <div class="hero-overlay rounded-3xl bg-opacity-10"></div>
+                <div class="hero-content text-center text-neutral-content flex flex-col lg:flex-row">
+                    <div class="text-left">
+                        <h1 class=" text-3xl lg:text-6xl font-bold mb-7 text-left ">Welcome to the <br> Classic Corner Forum</h1>
+                        <p class="mb-5 text-left">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
+                        <div class="h-[40%]">
+                            <input type="text" placeholder="Type here" class="input relative input-bordered max-w-xs rounded-l-full" />
+                            <a class="btn rounded-r-full pl-7 pr-7 bg-[#797DFC] text-white absolute font-bold font-mulish">Sign In</a>
+                        </div>
+                    </div>
+                    <div class="text-[#12132DCC] bg-white rounded-xl w-[288px] lg:w-[371px] h-[288px] flex justify-between items-center p-8 text-2xl font-medium">
+                        <div class="text-left space-y-4">
+                            <h4>Registered</h4>
+                            <h4>Forum</h4>
+                            <h4>Topics</h4>
+                            <h4>Replies</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <h4>01</h4>
+                            <h4>05</h4>
+                            <h4>01</h4>
+                            <h4>01</h4>
+                        </div>  
                     </div>
                 </div>
-                <div class="text-[#12132DCC] bg-white rounded-xl w-[288px] lg:w-[371px] h-[288px] flex justify-between items-center p-8 text-2xl font-medium">
-                    <div class="text-left space-y-4">
-                        <h4>Registered</h4>
-                        <h4>Forum</h4>
-                        <h4>Topics</h4>
-                        <h4>Replies</h4>
-                    </div>
-                    <div class="space-y-4">
-                        <h4>01</h4>
-                        <h4>05</h4>
-                        <h4>01</h4>
-                        <h4>01</h4>
-                    </div>  
-                </div>
-            </div>
-        </div> 
-        
-    </div>
+            </div> 
+            
+        </div>
     </header>
-    <main>
-
+    <main class="w-[95%] m-auto mt-10">
+        <div class="text-center space-y-8">
+            <h2 class="text-[#12132D] text-5xl font-extrabold">Let's Discuss</h2>
+            <p class="text-[#12132D99] text-xl">Yes, you can run unit tests and view the results directly within the app. The
+            <br> integrated testing features allow for a streamlined .</p>
+        </div>
+       <div>
+            <div id="post-container" class="flex gap-4 p-10 bg-[#F3F3F5] rounded-2xl">
+                <div>
+                    <div class="avatar indicator">
+                        <span class="indicator-item badge badge-secondary"></span> 
+                        <div class="w-20 h-20 rounded-lg">
+                        <img alt="Tailwind CSS examples" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="flex gap-3">
+                        <h3>#Comedy</h3>
+                        <h3>Author: Imran Khan</h3>
+                    </div>
+                    <h4>10 Kids Unaware of Their Halloween Costume</h4>
+                    <p>It's one thing to subject yourself to ha Halloween costume mishap because, hey that's your prerogative</p>
+                    <hr>
+                    <div class="flex justify-between">
+                        <div class="flex gap-4">
+                            <img src="icon/messege.png" alt=""><h3>560</h3>
+                            <img src="icon/eye.png" alt=""><h3>560</h3>
+                            <img src="icon/clock.png" alt=""><h3>560</h3>
+                        </div>
+                        <button class="btn btn-xs"><img src="icon/email 1.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+            <div id="title-container" class="bg-[#12132D0D] ">
+                <div class="flex justify-between">
+                    <h4 class="text-[#12132D] text-xl font-bold">Title</h4>
+                    <h4 class="text-[#12132D99]">Mark as read <span>4</span></h4>
+                </div>
+            </div>
+       </div>
     </main>
     <footer>
 
