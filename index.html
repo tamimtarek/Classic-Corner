@@ -49,11 +49,11 @@
                 <div class="hero-overlay rounded-3xl bg-opacity-10"></div>
                 <div class="hero-content text-center text-neutral-content flex flex-col lg:flex-row">
                     <div class="text-left">
-                        <h1 class=" text-3xl lg:text-6xl font-bold mb-7 text-left ">Welcome to the <br> Classic Corner Forum</h1>
+                        <h1 class=" text-3xl lg:text-6xl font-black mb-7 text-left ">Welcome to the <br> Classic Corner Forum</h1>
                         <p class="mb-5 text-left">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
                         <div class="h-[40%]">
-                            <input type="text" placeholder="Type here" class="input relative input-bordered max-w-xs rounded-l-full" />
-                            <a class="btn rounded-r-full pl-7 pr-7 bg-[#797DFC] text-white absolute font-bold font-mulish">Sign In</a>
+                            <input type="text" id="input-field" placeholder="Search here" class="input relative text-gray-700 input-bordered max-w-xs rounded-l-full" />
+                            <a id="search-btn" onclick="handleSearch()" class="btn rounded-r-full pl-7 pr-7 bg-[#797DFC] text-white absolute font-bold font-mulish">Search</a>
                         </div>
                     </div>
                     <div class="text-[#12132DCC] bg-white rounded-xl w-[288px] lg:w-[371px] h-[288px] flex justify-between items-center p-8 text-2xl font-medium">
@@ -75,6 +75,9 @@
             
         </div>
     </header>
+    <div id="loading-spiner" class="loading-spiner flex justify-center items-center p-14 hidden">
+        <img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca.gif" alt="">
+    </div>
     <div class="w-[95%] m-auto mt-10">
         <!-- Let's Discuss -->
         <div class="text-center space-y-8">
@@ -89,7 +92,7 @@
             <div  class="bg-[#12132D0D] rounded-2xl p-5 lg:w-[30%]">
                 <div class="flex justify-between">
                     <h4 class="text-[#12132D] text-xl font-bold">Title</h4>
-                    <h4 class="text-[#12132D99]">Mark as read<span class="ml-3 text-red-600">4</span></h4>
+                    <h4 class="text-[#12132D99]">Mark as read<span id="title-count" class="ml-3 text-red-600"></span></h4>
                 </div>
                 <div id="title-container" class="space-y-5">
                     

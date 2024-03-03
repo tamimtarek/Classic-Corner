@@ -1,14 +1,18 @@
 const postContainer = document.getElementById('post-container');
 const titleContainer = document.getElementById("title-container");
 const latestPostsContainer = document.getElementById("latest-post");
+const titleCount = document.getElementById("title-count");
 // All news
-const allNews = async () => {
+const allNews = async (searchText) => {
+  document.getElementById("loading-spiner").classList.remove('hidden');
   const res = await fetch(
-    "https://openapi.programming-hero.com/api/retro-forum/posts"
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`
   );
   
   const data = await res.json();
+  postContainer.innerHTML = '';
   data.posts.forEach((item) => {
+    setTimeout(loadingSpinner, 2000);
       let active = '';
       if(item.isActive === true){
           active = '<span class="indicator-item badge bg-[#10B981]"></span>';
@@ -41,7 +45,7 @@ const allNews = async () => {
         <img id="post-view" src="icon/eye.png" alt=""><h3>${item.view_count}</h3>
         <img src="icon/clock.png" alt=""><h3>${item.posted_time}min</h3>
         </div>
-        <button id="post-btn" onclick = "loadBtn()" class="btn btn-xs"><img src="icon/email 1.png" alt=""></button>
+          <button onclick ="loadBtn('${item.title}', ${item.view_count})" class="btn btn-xs"><img src="icon/email 1.png" alt=""></button>
         </div>
         </div>
         </div>
@@ -51,42 +55,48 @@ const allNews = async () => {
     })
 }
 
-const loadBtn = async() => {
-    const res = await fetch(
-      "https://openapi.programming-hero.com/api/retro-forum/posts"
-    );
-    
-    const data = await res.json();
-    data.posts.forEach((item) => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-            <div class= "bg-white flex justify-between p-3 rounded-lg">
-            <h3>${item.title}</h3>
-            <h3>${item.view_count}</h3>
-        `;
-       titleContainer.appendChild(div);
-    })
-    
+// Search Handle 
+const handleSearch = () => {
+  const searchField = document.getElementById("input-field");
+  const searchText = searchField.value;
+  allNews(searchText)
 }
 
+let titleCountNum = 0;
+const totalNum = parseFloat(titleCount);
+const loadBtn = (title, view) => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <div class= "bg-white flex justify-between p-3 rounded-lg">
+  <h3>${title}</h3>
+  <h3>${view}</h3>
+  </div>
+  `;
+  titleCountNum = titleCountNum + 1;
+  titleContainer.appendChild(div);
+  setInnerText("title-count", titleCountNum);
+}
+function loadingSpinner() {
+  document.getElementById("loading-spiner").classList.add('hidden');
+}
 const latestPosts = async() => {
     const res = await fetch("https://openapi.programming-hero.com/api/retro-forum/latest-posts");
     const data = await res.json();
     data.forEach((item) =>{
-        const div = document.createElement('div');
-        console.log(item)
-        div.innerHTML = `
-        <div class="card w-96  bg-base-100 shadow-xl">
-        <figure><img class="p-6" src="${item.cover_image}" alt="" /></figure>
-        <div class="card-body">
-                <h3 class="text-[#12132D99] flex gap-2"><img src="icon/calander.png" alt=""> ${item.author.posted_date?item.author.posted_date:"No publish date"}</h3>
+      const div = document.createElement('div');
+      console.log(item)
+      div.innerHTML = `
+      <div class="card  bg-base-100 shadow-xl">
+      <figure><img class="p-6" src="${item.cover_image}" alt="" /></figure>
+      <div class="card-body">
+      <h3 class="text-[#12132D99] flex gap-2"><img src="icon/calander.png" alt=""> ${item.author.posted_date?item.author.posted_date:"No publish date"}</h3>
               <h2 class="card-title text-[#12132D] font-extrabold">
                 ${item.title}
               </h2>
               <p class="text-[#12132D99]">${item.description}</p>
               <div>
                 <div class="flex gap-2 items-center">
-                    <div>
+                <div>
                         <img class="w-16 h-16 rounded-full" src="${item.profile_image}" alt="">
                     </div>
                     <div>
@@ -102,6 +112,12 @@ const latestPosts = async() => {
     })
 }
 
-allNews()
+
+
+function setInnerText (id, value){
+  document.getElementById(id).innerText= value;
+}
+
+allNews('comedy')
 latestPosts()
 
