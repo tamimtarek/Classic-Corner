@@ -5,12 +5,10 @@ const titleCount = document.getElementById("title-count");
 // All news
 const allNews = async (searchText) => {
   document.getElementById("loading-spiner").classList.remove('hidden');
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`
-  );
-  
+  const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
   const data = await res.json();
   postContainer.innerHTML = '';
+  handleSearch(searchText)
   data.posts.forEach((item) => {
     setTimeout(loadingSpinner, 2000);
       let active = '';
@@ -56,10 +54,14 @@ const allNews = async (searchText) => {
 }
 
 // Search Handle 
-const handleSearch = () => {
-  const searchField = document.getElementById("input-field");
-  const searchText = searchField.value;
-  allNews(searchText)
+const handleSearch = async(searchText) => {
+  const res = await fetch (`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`)
+  const data = await res.json();
+  data.posts.forEach((item) => {
+    const searchField = document.getElementById("input-field");
+    const searchText = searchField.value;
+    return searchText;
+  })
 }
 
 let titleCountNum = 0;
@@ -118,6 +120,7 @@ function setInnerText (id, value){
   document.getElementById(id).innerText= value;
 }
 
-allNews('comedy')
-latestPosts()
 
+latestPosts()
+allNews()
+setTimeout( 2000)
